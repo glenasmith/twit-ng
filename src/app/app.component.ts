@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
-import { FeedComponent } from './feed';
-import { MenuComponent } from './menu';
 
 @Component({
   moduleId: module.id,
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.css'],
-  directives: [ FeedComponent, MenuComponent ]
+  styleUrls: ['app.component.css']
 })
 export class AppComponent {
   title = 'app works!';
