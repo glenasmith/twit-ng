@@ -13,12 +13,12 @@
       </div>
       <div class="actions">
         <a class="reply">Reply</a>
-        <a class="like">
-          <i class="like icon"></i> {{tweet.favorites.length}} Favourites
+        <a class="like" (click)='OnFavorite(tweet)'>
+          <i class="like icon" [ngClass]='{ liked: isUserInCollection(tweet.favorites, "Glen") }'></i> {{tweet.favorites.length}} Favourites
         </a>
 
-        <a class="retweet">
-          <i class="retweet icon"></i> {{tweet.retweets.length}} Retweets
+        <a class="retweet" (click)='OnRetweet(tweet)'>
+          <i class="retweet icon" [ngClass]='{ retweeted: isUserInCollection(tweet.retweets, "Glen") }'></i> {{tweet.retweets.length}} Retweets
         </a>
       </div>
     </div>

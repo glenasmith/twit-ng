@@ -24,4 +24,22 @@ export class FeedComponent implements OnInit {
   ngOnInit() {
   }
 
+  isUserInCollection(collection : string[], userId : string) : boolean {
+
+      return collection.indexOf(userId) != -1;
+
+  }
+
+  OnFavorite(tweet) {
+    if (!this.isUserInCollection(tweet.favorites, 'Glen')) {
+      tweet.favorites.push('Glen');
+    }
+  }
+
+  OnRetweet(tweet) {
+    if (!this.isUserInCollection(tweet.retweets, 'Glen')) {
+      tweet.retweets.push('Glen');
+    }
+  }
+
 }
