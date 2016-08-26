@@ -19,6 +19,8 @@ export class FeedComponent implements OnInit {
 
   ]
 
+  tweetText = '';
+
   constructor() { }
 
   ngOnInit() {
@@ -40,6 +42,14 @@ export class FeedComponent implements OnInit {
     if (!this.isUserInCollection(tweet.retweets, 'Glen')) {
       tweet.retweets.push('Glen');
     }
+  }
+
+  OnNewTweet() {
+    console.log(this.tweetText);
+    this.tweets.unshift(
+	      { body: this.tweetText, author: 'Glen', avatar: 'glen.jpg', date: new Date(), retweets: [], favorites: [] }
+	    );
+    this.tweetText = '';
   }
 
 }
