@@ -5,7 +5,6 @@ import { UserService } from '../user.service';
   moduleId: module.id,
   selector: 'app-feed',
   templateUrl: 'feed.component.html',
-  providers: [UserService],
   styleUrls: ['feed.component.css']
 })
 export class FeedComponent implements OnInit {
