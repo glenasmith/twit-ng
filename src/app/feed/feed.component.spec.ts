@@ -7,7 +7,7 @@ import { FeedComponent } from './feed.component';
 
 describe('Component: Feed', () => {
   it('should create an instance', () => {
-    let component = new FeedComponent();
+    let component = new FeedComponent(null);
     expect(component).toBeTruthy();
   });
 });
