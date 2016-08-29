@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   moduleId: module.id,
   selector: 'app-feed',
   templateUrl: 'feed.component.html',
+  providers: [UserService],
   styleUrls: ['feed.component.css']
 })
 export class FeedComponent implements OnInit {
@@ -21,7 +23,7 @@ export class FeedComponent implements OnInit {
 
   tweetText = '';
 
-  constructor() { }
+  constructor(private userService : UserService) { }
 
   ngOnInit() {
   }
@@ -33,21 +35,21 @@ export class FeedComponent implements OnInit {
   }
 
   OnFavorite(tweet) {
-    if (!this.isUserInCollection(tweet.favorites, 'Glen')) {
-      tweet.favorites.push('Glen');
+    if (!this.isUserInCollection(tweet.favorites, this.userService.getCurrentUser())) {
+      tweet.favorites.push(this.userService.getCurrentUser());
     }
   }
 
   OnRetweet(tweet) {
-    if (!this.isUserInCollection(tweet.retweets, 'Glen')) {
-      tweet.retweets.push('Glen');
+    if (!this.isUserInCollection(tweet.retweets, this.userService.getCurrentUser())) {
+      tweet.retweets.push(this.userService.getCurrentUser());
     }
   }
 
   OnNewTweet() {
     console.log(this.tweetText);
     this.tweets.unshift(
-	      { body: this.tweetText, author: 'Glen', avatar: 'glen.jpg', date: new Date(), retweets: [], favorites: [] }
+	      { body: this.tweetText, author: this.userService.getCurrentUser(), avatar: 'glen.jpg', date: new Date(), retweets: [], favorites: [] }
 	    );
     this.tweetText = '';
   }
