@@ -5,6 +5,6 @@ import {Tweet} from './tweet';
 
 describe('Tweet', () => {
   it('should create an instance', () => {
-    expect(new Tweet()).toBeTruthy();
+    expect(new Tweet('body', 'author', new Date(), [], [])).toBeTruthy();
   });
 });
