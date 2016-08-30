@@ -13,7 +13,7 @@
 <div class="ui comments" *ngIf='tweets.length'>
   <div class="comment" *ngFor='let tweet of tweets'>
     <a class="avatar">
-      <img src="/avatars/{{tweet.avatar}}">
+      <img src="../avatars/{{tweet.avatar}}">
     </a>
     <div class="content">
       <a class="author">{{tweet.author}}</a>
@@ -26,12 +26,12 @@
       <div class="actions">
         <a class="reply">Reply</a>
         <a class="like" (click)='OnFavorite(tweet)'>
-          <i class="like icon" [ngClass]='{ liked: isUserInCollection(tweet.favorites, userService.getCurrentUser()) }'></i> {{tweet.favorites.length}}
+          <i class="like icon" [ngClass]='{ liked: tweet.hasFavorited(userService.getCurrentUser()) }'></i> {{tweet.favorites.length}}
           Favourites
         </a>
 
         <a class="retweet" (click)='OnRetweet(tweet)'>
-          <i class="retweet icon" [ngClass]='{ retweeted: isUserInCollection(tweet.retweets, userService.getCurrentUser()) }'></i> {{tweet.retweets.length}}
+          <i class="retweet icon" [ngClass]='{ retweeted: tweet.hasRetweeted(userService.getCurrentUser()) }'></i> {{tweet.retweets.length}}
           Retweets
         </a>
       </div>
