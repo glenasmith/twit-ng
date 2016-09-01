@@ -6,11 +6,13 @@ import { FeedComponent } from './feed';
 import { MenuComponent } from './menu';
 import { UserService } from './user.service';
 import { FeedService } from './feed.service';
+import { routing,
+         appRoutingProviders } from './app.routing';
 
 @NgModule({
 	declarations: [ AppComponent, FeedComponent, MenuComponent ],
-	providers: [ UserService, FeedService ],
-	imports: [ BrowserModule, FormsModule ],
+	providers: [ UserService, FeedService, appRoutingProviders ],
+	imports: [ BrowserModule, FormsModule, routing ],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule { }
