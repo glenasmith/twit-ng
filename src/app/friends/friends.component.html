@@ -1,3 +1,18 @@
-<p>
-  friends works!
-</p>
+<div class="ui comments" *ngIf='friends.length'>
+	  <div class="comment" *ngFor='let friend of friends'>
+	    <a class="avatar">
+	      <img src="./avatars/{{friend.toLowerCase()}}.jpg">
+	    </a>
+	    <div class="content">
+	      <a class="author">{{friend}}</a>
+	      
+	      <div class="actions">
+	        <a routerLink="/friends/{{friend}}">Details</a>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div *ngIf='!friends.length'>
+	  <h2>THere are not any friends here</h2>
+	</div>

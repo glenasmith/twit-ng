@@ -40,6 +40,7 @@ const barrels: string[] = [
   'app/feed',
   'app/messages',
   'app/friends',
+  'app/friend',
   /** @cli-barrel */
 ];
 

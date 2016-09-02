@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FeedService } from '../feed.service';
 
 @Component({
   moduleId: module.id,
@@ -8,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FriendsComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  friends = [ ];
+	
+	  constructor(private feedService : FeedService) { 
+	
+	  }
+	
+	  ngOnInit() {
+	    this.friends = this.feedService.getFriends();
+	    console.log(this.friends);
+	  }
 
 }

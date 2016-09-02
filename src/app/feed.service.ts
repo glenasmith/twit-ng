@@ -57,5 +57,11 @@ export class FeedService {
 
   }
 
+  getFriends() : Array<string> {
+
+	    return [ 'Mary', 'Joe', 'Karen', 'Phil', 'Toni' ];
+
+	}
+
 
 }
