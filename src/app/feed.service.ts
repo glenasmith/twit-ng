@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Http, Response  }    from '@angular/http';
+import { Observable } from 'rxjs';
 import { UserService } from './user.service';
 import { Tweet } from './tweet';
 
@@ -20,7 +22,7 @@ export class FeedService {
 
   ]
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private http : Http) { }
 
   getCurrentFeed(): Array<Tweet> {
 
@@ -57,9 +59,10 @@ export class FeedService {
 
   }
 
-  getFriends() : Array<string> {
+  getFriends() : Observable<string[]> {
 
-	    return [ 'Mary', 'Joe', 'Karen', 'Phil', 'Toni' ];
+    return this.http.get('/friends.json').map((resp: Response) => resp.json() as string[]);
+	    //return [ 'Mary', 'Joe', 'Karen', 'Phil', 'Toni' ];
 
 	}
 
