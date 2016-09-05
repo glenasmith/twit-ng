@@ -7,7 +7,7 @@ import { FriendsComponent } from './friends.component';
 
 describe('Component: Friends', () => {
   it('should create an instance', () => {
-    let component = new FriendsComponent();
+    let component = new FriendsComponent(null);
     expect(component).toBeTruthy();
   });
 });
