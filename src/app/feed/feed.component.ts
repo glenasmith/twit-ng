@@ -18,7 +18,9 @@ export class FeedComponent implements OnInit {
   constructor(private userService: UserService, private feedService: FeedService) { }
 
   ngOnInit() {
-    this.tweets = this.feedService.getCurrentFeed();
+    this.feedService.getCurrentFeed().subscribe( (newTweets) => {
+      this.tweets = newTweets;
+    });
   }
 
   OnFavorite(tweet) {
@@ -31,7 +33,9 @@ export class FeedComponent implements OnInit {
 
   OnNewTweet() {
     console.log(this.tweetText);
-    this.feedService.postNewTweet(this.tweetText);
+    this.feedService.postNewTweet(this.tweetText).subscribe( (newTweet : Tweet) => {
+      this.tweets.unshift(newTweet);
+    });
     this.tweetText = '';
   }
 
