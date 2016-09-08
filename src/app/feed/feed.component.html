@@ -10,6 +10,14 @@
   >Tweet</button>
 </form>
 
+<div *ngIf="errorText" class="ui negative message">
+	  <i class="close icon"></i>
+	  <div class="header">
+	    {{ errorText }}
+	  </div>
+	</div>
+
+<div *ngIf="loaded">
 <div class="ui comments" *ngIf='tweets.length'>
   <div class="comment" *ngFor='let tweet of tweets'>
     <a class="avatar">
@@ -41,4 +49,9 @@
 
 <div *ngIf='!tweets.length'>
   <h2>THere are not any tweets here</h2>
+</div>
+</div>
+
+<div *ngIf='!loaded'>
+	  <h2>Loading...</h2>
 </div>

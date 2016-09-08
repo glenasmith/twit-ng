@@ -23,7 +23,7 @@ import { MockDatabaseService }  from './mock.database.service';
 	providers: [ UserService, FeedService, appRoutingProviders ],
 	imports: [ BrowserModule, FormsModule, routing, HttpModule,
 		InMemoryWebApiModule.forRoot(MockDatabaseService, { 
-            delay: 100,  rootPath: 'api/'
+            delay: 1000,  rootPath: 'api/'
         })
 	 ],
 	bootstrap: [ AppComponent ]
