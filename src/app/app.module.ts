@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule }    from '@angular/http';
 import { AppComponent } from './app.component';
 import { FeedComponent } from './feed';
@@ -22,7 +22,7 @@ import { MockDatabaseService }  from './mock.database.service';
 @NgModule({
 	declarations: [ AppComponent, FeedComponent, MenuComponent, FriendsComponent, FriendComponent, MessagesComponent, LoginComponent ],
 	providers: [ UserService, FeedService, appRoutingProviders ],
-	imports: [ BrowserModule, FormsModule, routing, HttpModule,
+	imports: [ BrowserModule, FormsModule, ReactiveFormsModule, routing, HttpModule,
 		InMemoryWebApiModule.forRoot(MockDatabaseService, { 
             delay: 1000,  rootPath: 'api/'
         })
