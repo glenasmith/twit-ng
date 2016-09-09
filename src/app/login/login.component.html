@@ -1,0 +1,21 @@
+<form class="ui form error" #form='ngForm' (ngSubmit)='OnSubmit(form.value)'>
+	  <div class="field">
+	    <label>User Name</label>
+	    <input name="username" ngModel placeholder="User Name" type="text" required #username='ngModel'>
+      <div *ngIf='username.dirty && username.invalid' class='ui error message'><p>Username is required</p></div>
+
+	  </div>
+	  <div class="field">
+	    <label>Password</label>
+	    <input name="password" ngModel placeholder="Password" type="password">
+	  </div>
+	  <div class="field" ngModelGroup='options'>
+	    <div class="ui checkbox">
+	      <input name="rememberme" ngModel tabindex="0" type="checkbox">
+	      <label>Remember Me</label>
+	    </div>
+	  </div>
+	  <button class="ui button primary" type="submit">Submit</button>
+	</form>
+
+  {{ form.value | json }}
