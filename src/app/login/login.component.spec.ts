@@ -7,7 +7,7 @@ import { LoginComponent } from './login.component';
 
 describe('Component: Login', () => {
   it('should create an instance', () => {
-    let component = new LoginComponent();
+    let component = new LoginComponent(null);
     expect(component).toBeTruthy();
   });
 });
