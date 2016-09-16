@@ -7,8 +7,20 @@ describe('twit-ng App', function() {
     page = new TwitNgPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should be able to post a tweet', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    page.postNewTweet("winning new tweet");
+    
+    expect(page.getFeedCount()).toEqual(6);
+    expect(page.getLatestTweet()).toEqual("winning new tweet");
   });
+
+
+  it("Should increment retweet count", () => {
+	    page.navigateTo();
+	    page.retweetLatestTweet();
+	    var rtCount = page.getLatestTweetRetweetCount();
+	    expect(rtCount).toEqual("2 Retweets");
+	  });
+
 });
