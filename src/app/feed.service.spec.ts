@@ -1,12 +1,16 @@
 /* tslint:disable:no-unused-variable */
 
-import { addProviders, async, inject } from '@angular/core/testing';
+import { TestBed, async, inject } from '@angular/core/testing';
 import { FeedService } from './feed.service';
 import { UserService } from './user.service';
+import { HttpModule }    from '@angular/http';
 
 describe('Service: Feed', () => {
   beforeEach(() => {
-    addProviders([FeedService, UserService]);
+    TestBed.configureTestingModule({
+      providers: [FeedService, UserService],
+      imports: [HttpModule]
+    });
   });
 
   it('should ...',

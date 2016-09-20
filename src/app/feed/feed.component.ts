@@ -4,7 +4,6 @@ import { FeedService } from '../feed.service';
 import { Tweet } from '../tweet';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-feed',
   templateUrl: 'feed.component.html',
   styleUrls: ['feed.component.css']

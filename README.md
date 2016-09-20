@@ -1,21 +1,13 @@
-# TwitNg
+# MigrationProject
 
-This is the working respository for my little YouTube series titled "Learn Angular 2 in 21 Days (for Java Devs)".
-
-There is a [playlist](https://www.youtube.com/playlist?list=PLix-OafSjpFmq9K8eItC6bFSgz-732Rkn) for all the episodes as they are developed.
-
-Or just checkout the entire [Fresh Bytecode Channel](https://www.youtube.com/channel/UChOgnDhsjo_8UGhPQH8tH1w) to see new content in context.
-
-## Angular CLI Generation
-
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.10.
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.14.
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/route/class`.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
 
 ## Build
 

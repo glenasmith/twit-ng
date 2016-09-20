@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FeedService } from '../feed.service';
 
 
 @Component({
-  moduleId: module.id,
   selector: 'app-login',
   templateUrl: 'login.component.html',
   styleUrls: ['login.component.css']
@@ -18,14 +18,14 @@ export class LoginComponent implements OnInit {
   // })
 
 
-  constructor(private formBuilder : FormBuilder) { }
+  constructor(private formBuilder : FormBuilder, private feedService: FeedService) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      username: ['blah', Validators.required],
-      password: ['blah', Validators.required],
+      username: ['', Validators.required],
+      password: ['', Validators.required],
       rememberme: [true]
-    })
+    });
   }
 
   OnSubmit(jsonForm) {
