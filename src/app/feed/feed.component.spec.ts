@@ -34,20 +34,31 @@ beforeEach(() => {
   });
 
   it('should retrieve things on init..', () => {
-    let fixture = TestBed.createComponent(FeedComponent);
-    let app = fixture.debugElement.componentInstance as FeedComponent;
-    expect(app.loaded).toBeFalsy();
-    expect(app.tweets.length).toEqual(0);
+	    let fixture = TestBed.createComponent(FeedComponent);
+	    let app = fixture.debugElement.componentInstance as FeedComponent;
+	    expect(app.loaded).toBeFalsy();
+	    expect(app.tweets.length).toEqual(0);
+	
+	    app.ngOnInit();
+	    expect(app.tweets.length).toEqual(2);
+	    expect(app.loaded).toBeTruthy();
+	  });
 
-    app.ngOnInit();
-    expect(app.tweets.length).toEqual(2);
-    expect(app.loaded).toBeTruthy();
-
-    let tweet = new Tweet(125, 'Another Mock Tweet', 'Glen', new Date(), [], []);
-
-    app.OnFavorite(tweet);
-    app.OnRetweet(tweet);
-  })
-
+    it('should favorite and retweet appropriately..', () => {
+	
+	    let fixture = TestBed.createComponent(FeedComponent);
+	    let app = fixture.debugElement.componentInstance as FeedComponent;
+	
+	    let tweet = new Tweet(125, 'Another Mock Tweet', 'Glen', new Date(), [], []);
+	
+	    expect(tweet.favorites.length).toEqual(0);
+	    app.OnFavorite(tweet);
+	    expect(tweet.favorites.length).toEqual(1);
+	
+	    expect(tweet.retweets.length).toEqual(0);
+	    app.OnRetweet(tweet);
+	    expect(tweet.retweets.length).toEqual(1);
+	
+	  });
   
 });
